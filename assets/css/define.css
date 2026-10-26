@@ -1,0 +1,562 @@
+:root {
+    --page-bg: #d9774a;
+    --pill-fill: #fbe0da;
+    --pill-border: #f48373;
+    --pill-glow: rgba(255, 130, 110, 0.75);
+    --title-red: #b3221b;
+    --note-blue: #0f33c0;
+    --num-fill: #fbe38c;
+    --num-border: #f2b049;
+    --num-active: #f2a3a3;
+    --num-text: #b0231a;
+    --lang-red: #e0503c;
+}
+
+@font-face {
+    font-family: "Baloo";
+    src: url("../../fonts/Baloo%20Regular%20400.ttf") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "ITF Devanagari";
+    src: url("../../fonts/ITFDevanagari.ttc") format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Noto Sans Gujarati";
+    src: url("../../fonts/NotoSansGujarati-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+body {
+    background-color: var(--page-bg);
+}
+
+#language {
+    background-color: var(--lang-red);
+}
+
+#langSelect {
+    top: 1.4vw;
+    right: 2.6%;
+}
+
+#langSelect label span {
+    box-sizing: border-box;
+    display: block;
+    width: 2.4vw;
+    padding: 0;
+    border-radius: 50%;
+    text-align: center;
+    font-family: "Baloo", sans-serif;
+    font-weight: 400;
+    font-size: 1.05vw;
+    line-height: 2.2vw;
+}
+
+.define-bg,
+.home-btn,
+.title-pill,
+.num-btn,
+.window-frame,
+.window-mask,
+.shutter,
+.arrow,
+.dots,
+.watch-btn,
+.note-pill {
+    position: absolute;
+    height: auto;
+    line-height: 0;
+}
+
+.define-bg,
+.window-frame img,
+.home-btn img,
+.watch-btn img,
+.arrow img,
+.shutter img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.home-btn,
+.watch-btn,
+.arrow {
+    cursor: pointer;
+}
+
+/* title and note pills */
+
+.title-pill,
+.note-pill {
+    box-sizing: border-box;
+    border: 0.2083vw solid var(--pill-border);
+    border-radius: 2.6vw;
+    background: var(--pill-fill);
+    box-shadow: 0 0 1.1vw var(--pill-glow), inset 0 0 1vw rgba(255, 255, 255, 0.7);
+    text-align: center;
+}
+
+.title-pill {
+    padding: 0.6vw 0;
+}
+
+.title-text {
+    margin: 0;
+    font-family: "Baloo", sans-serif;
+    font-weight: 400;
+    font-variant: small-caps;
+    font-size: 2.4vw;
+    line-height: 2.6042vw;
+    letter-spacing: 0.05vw;
+    color: var(--title-red);
+    text-shadow: 0.1vw 0.1vw 0 rgba(255, 255, 255, 0.8);
+}
+
+.note-pill {
+    display: grid;
+    padding: 1.3802vw 1.9vw;
+}
+
+.note-text {
+    grid-area: 1 / 1;
+    align-self: center;
+    margin: 0;
+    font-family: "Baloo", sans-serif;
+    font-weight: 400;
+    font-size: 1.6vw;
+    line-height: 2.2396vw;
+    color: var(--note-blue);
+    text-shadow: 0.05vw 0.05vw 0 rgba(15, 51, 192, 0.35);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.note-text.is-active {
+    opacity: 1;
+}
+
+/* number buttons: the pill is hidden behind the square and slides out on hover */
+
+.num-btn {
+    text-decoration: none;
+    line-height: 0;
+}
+
+.num-digit {
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    border: 0.1563vw solid var(--num-border);
+    border-radius: 0.5vw;
+    background: var(--num-fill);
+    box-shadow: 0 0.1vw 0.3vw rgba(0, 0, 0, 0.25);
+    text-align: center;
+    font-size: 2.2vw;
+    line-height: 3.6979vw;
+    color: var(--num-text);
+}
+
+.num-btn.is-active .num-digit {
+    background: var(--num-active);
+}
+
+.num-pill {
+    position: absolute;
+    left: 2.6%;
+    top: 6.5%;
+    bottom: 6.5%;
+    width: 368%;
+    box-sizing: border-box;
+    border: 0.1vw solid #fff7e8;
+    border-radius: 2vw;
+    background: #d9d9d9;
+    box-shadow: 0 0.1vw 0.3vw rgba(0, 0, 0, 0.25);
+    transform-origin: 0 50%;
+    transform: scaleX(0.258);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.num-text {
+    position: absolute;
+    left: 106%;
+    top: 50%;
+    width: 236%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 0.95vw;
+    line-height: 1.15vw;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #4a2f2a;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.num-btn:hover .num-pill,
+.num-btn:focus-visible .num-pill {
+    transform: scaleX(1);
+}
+
+.num-btn:hover .num-text,
+.num-btn:focus-visible .num-text {
+    opacity: 1;
+    transition-delay: 0.15s;
+}
+
+/* window */
+
+.window-mask {
+    overflow: hidden;
+}
+
+.define-swiper {
+    width: 100%;
+    height: auto;
+    line-height: 0;
+}
+
+.define-swiper .swiper-slide {
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    line-height: 0;
+}
+
+/* 16:9 video covers the 886x621 window: scaled to the window height, sides cropped */
+.slide-spacer {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slide-video {
+    position: absolute;
+    left: -12.3%;
+    top: 0;
+    width: 124.6%;
+    height: auto;
+    display: block;
+}
+
+/* the classroom seen through the window: scene scaled 0.6 and centred on the mask */
+.window-room {
+    position: absolute;
+    left: -15.01%;
+    top: -2.17%;
+    width: 130%;
+    height: auto;
+    filter: blur(0.6vw);
+    opacity: 0.6;
+}
+
+.glass-tint {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.shutter {
+    transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.shutter-left {
+    transform-origin: 0 0;
+    transform: translate(-2.7907%, -1.1513%) scale(1.0279, 1.0214) perspective(260vw) rotateY(0deg);
+}
+
+.shutter-right {
+    transform-origin: 100% 0;
+    transform: translate(3.0162%, -1.1513%) scale(1.0302, 1.0214) perspective(260vw) rotateY(0deg);
+}
+
+.state-open .shutter-left {
+    transform: translate(0, -1.1513%) scale(1, 1.0214) perspective(260vw) rotateY(-105deg);
+}
+
+.state-open .shutter-right {
+    transform: translate(0, -1.1513%) scale(1, 1.0214) perspective(260vw) rotateY(105deg);
+}
+
+/* arrows */
+
+.arrow {
+    transition: opacity 0.4s ease;
+}
+
+.arrow-prev img {
+    transform: scaleX(-1);
+}
+
+.arrow.swiper-button-disabled {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.arrow.swiper-button-lock {
+    display: block;
+}
+
+/* dots and watch video */
+
+.stage .dots.swiper-pagination-bullets {
+    display: flex;
+    gap: 0.2083vw;
+    bottom: auto;
+    right: auto;
+    width: auto;
+    margin: 0;
+    transform: none;
+    text-align: left;
+    transition: opacity 0.6s ease 1s;
+}
+
+.stage .dots .swiper-pagination-bullet {
+    --swiper-pagination-bullet-width: 0;
+    --swiper-pagination-bullet-height: 0;
+    box-sizing: content-box;
+    width: 0;
+    height: auto;
+    margin: 0;
+    padding: 0.5208vw;
+    background: #fff;
+    opacity: 0.45;
+}
+
+.stage .dots .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.watch-btn {
+    transition: opacity 0.6s ease 1s;
+}
+
+.state-closed .dots,
+.state-closed .watch-btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* layout */
+.define-bg { left: 0%; top: 0%; width: 100%; }
+.home-btn { left: 2.5521%; top: 2.75%; width: 3.2292%; }
+.title-pill { left: 27.7083%; top: 1.5833%; width: 43.8542%; }
+.num-1 { left: 0.3646%; top: 35.9259%; width: 4.0104%; }
+.num-2 { left: 0.3646%; top: 44.1667%; width: 4.0104%; }
+.num-3 { left: 0.3646%; top: 52.4074%; width: 4.0104%; }
+.num-4 { left: 0.3646%; top: 60.6481%; width: 4.0104%; }
+.arrow-prev { left: 15.625%; top: 45.0926%; width: 3.5417%; }
+.arrow-next { left: 80.8333%; top: 45.0926%; width: 3.5417%; }
+.window-frame { left: 26.3021%; top: 20%; width: 47.3438%; }
+.window-mask { left: 26.9271%; top: 21.2037%; width: 46.1458%; }
+.shutter-left { left: 27.5521%; top: 21.8519%; width: 22.3958%; }
+.shutter-right { left: 49.9479%; top: 21.8519%; width: 22.4479%; }
+.note-pill { left: 26.5625%; top: 81.7593%; width: 46.8750%; }
+.watch-btn { left: 80%; top: 73.8889%; width: 10.3646%; }
+.stage .dots.swiper-pagination-bullets { left: 50.625%; top: 72.6852%; transform: translateX(-50%); }
+
+.watch-btn {
+    display: block;
+}
+
+/* centred in the pill to the right of the play icon (text 122px wide in Figma) */
+.watch-label {
+    position: absolute;
+    left: 31%;
+    top: 50%;
+    width: 63%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-family: "Baloo", sans-serif;
+    font-weight: 400;
+    font-size: 0.82vw;
+    line-height: 1vw;
+    letter-spacing: 0;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.watch-label span {
+    display: inline;
+}
+
+.window-mask {
+    z-index: 1;
+}
+
+.shutter {
+    z-index: 2;
+}
+
+.arrow,
+.dots,
+.watch-btn {
+    z-index: 3;
+}
+
+.define-swiper {
+    transition: opacity 0.8s ease 0.5s;
+}
+
+.state-closed .define-swiper {
+    opacity: 0;
+}
+
+/* group holding wall, window and shutters */
+
+.zoom-group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 0;
+}
+
+/* hold the stage back until every image has loaded so nothing jumps into place */
+
+.stage {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.stage.is-ready {
+    opacity: 1;
+}
+
+/* language fonts: Baloo (English), ITF Devanagari (Hindi), Noto Sans Gujarati (Gujarati) */
+
+body {
+    font-family: "Baloo", sans-serif;
+}
+
+.english {
+    font-family: "Baloo", sans-serif;
+}
+
+.hindi {
+    font-family: "ITF Devanagari", "Baloo", sans-serif;
+    font-weight: 700;
+}
+
+.gujrati {
+    font-family: "Noto Sans Gujarati", "Baloo", sans-serif;
+    font-weight: 700;
+}
+
+/* arrow to pranam.html: replaces the next arrow on the last slide of how.html */
+
+/* position as specified: bottom right */
+.pranam-end-link {
+    position: absolute;
+    right: 12%;
+    top: 83%;
+    width: 6.6667%;
+    z-index: 3;
+    display: block;
+    line-height: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* only shown on the last slide (the base rule no longer hides it) */
+.pranam-end-link:not(.is-visible) {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.pranam-end-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.pranam-end-link.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: pranam-pop 1.2s ease-in-out infinite;
+}
+
+.pranam-end-link-label {
+    position: absolute;
+    top: 50%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    color: #802922;
+    font-size: 1.3vw;
+    line-height: 1.6vw;
+    white-space: nowrap;
+}
+
+@keyframes pranam-pop {
+    0%,
+    100% {
+        transform: scale(0.85);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+/* title bar: Hindi and Gujarati in bold (the font files have one weight, so the browser draws the bold) */
+.title-text .hindi,
+.title-text .gujrati {
+    font-weight: 700;
+}
+
+/* WATCH VIDEO pop-up player */
+
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.78);
+}
+
+.video-modal.is-open {
+    display: flex;
+}
+
+.video-modal-box {
+    position: relative;
+    width: 62%;
+    line-height: 0;
+}
+
+.video-modal-player {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0.8vw;
+    background: #000;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -2.2vw;
+    right: -4.4vw;
+    width: 3.2813vw;
+    padding: 0;
+    border: 0;
+    background: none;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.video-modal-close img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

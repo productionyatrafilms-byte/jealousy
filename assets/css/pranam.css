@@ -1,0 +1,234 @@
+/* pranam.html - same layout and behaviour as the idontcare pranam page (circular masked video inside a
+   framed card, popping Home button), on this project's shell with the brick-wall background
+   (bginside.png). vw units, height auto. */
+
+@font-face {
+    font-family: "Baloo";
+    src: url("../../fonts/Baloo%20Regular%20400.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Devanagari";
+    src: url("../../fonts/ITFDevanagari.ttc") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Sans Gujarati";
+    src: url("../../fonts/NotoSansGujarati-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --page-bg: #d9774a;
+    --maroon: #802922;
+    --lang-red: #e0503c;
+}
+
+body {
+    background-color: var(--page-bg);
+    font-family: "Baloo", sans-serif;
+}
+
+/* language toggle: same small round buttons as the other pages */
+
+#language {
+    background-color: var(--lang-red);
+}
+
+#langSelect {
+    top: 1.4vw;
+    right: 2.6%;
+}
+
+#langSelect label span {
+    box-sizing: border-box;
+    display: block;
+    width: 2.4vw;
+    padding: 0;
+    border-radius: 50%;
+    text-align: center;
+    font-family: "Baloo", sans-serif;
+    font-weight: 400;
+    font-size: 1.05vw;
+    line-height: 2.2vw;
+}
+
+.page-bg {
+    object-fit: cover;
+}
+
+.main-container {
+    align-content: center;
+}
+
+/* ---------- back button: level with the language toggle ---------- */
+
+.back-btn {
+    position: absolute;
+    left: 2.5521%;
+    top: 1.3vw;
+    width: 3.4vw;
+    z-index: 999999;
+    display: block;
+}
+
+.back-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- pranam card ---------- */
+
+.pranam-container {
+    position: absolute;
+    width: 45vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pranam-container > .pranam-img {
+    position: relative;
+    width: 85%;
+    display: block;
+}
+
+.pranam-container > .pranam-img > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.pranam-img .pranam-title {
+    z-index: 15;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    font-size: 3.4vw;
+    line-height: 4vw;
+    transform: translateX(-50%);
+    color: var(--maroon);
+    white-space: nowrap;
+}
+
+.pranam-title .english {
+    font-family: "Baloo", sans-serif;
+}
+
+.pranam-title .hindi {
+    font-family: "Devanagari", sans-serif;
+}
+
+.pranam-title .gujrati {
+    font-family: "Noto Sans Gujarati", sans-serif;
+}
+
+.pranam-video {
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+    width: 28vw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: #f6f6f6;
+    background-image: url("../images/pranam-bg-1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-right: 2.5vw;
+    z-index: 5;
+}
+
+.pranam-video video {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 1.0843;
+    object-fit: cover;
+    mask-image:
+        linear-gradient(to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 2%,
+            rgba(0, 0, 0, 0.95) 4%,
+            black 6%,
+            black 90%,
+            rgba(0, 0, 0, 0.95) 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%),
+        linear-gradient(to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.8) 2%,
+            rgba(0, 0, 0, 0.95) 4%,
+            black 6%,
+            black 90%,
+            rgba(0, 0, 0, 0.95) 96%,
+            rgba(0, 0, 0, 0.8) 98%,
+            transparent 100%);
+    mask-composite: intersect;
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+}
+
+/* ---------- Home button ---------- */
+
+.pranam-container .home-btn-1 {
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    width: 15vw;
+    transition: transform 0.2s ease;
+    transform-origin: center center;
+    text-decoration: none;
+    display: block;
+}
+
+.pranam-container .home-btn-1:hover {
+    transform: translateX(-50%) scale(1.15);
+}
+
+.pranam-container .home-btn-1 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.home-btn-1 .home-btn-1-label {
+    z-index: 15;
+    position: absolute;
+    top: 45%;
+    left: 38%;
+    font-size: 2.5vw;
+    line-height: 3vw;
+    transform: translateY(-50%);
+    color: var(--maroon);
+    white-space: nowrap;
+}
+
+.home-btn-1-label .english {
+    font-family: "Baloo", sans-serif;
+}
+
+.home-btn-1-label .hindi {
+    font-family: "Devanagari", sans-serif;
+}
+
+.home-btn-1-label .gujrati {
+    font-family: "Noto Sans Gujarati", sans-serif;
+}

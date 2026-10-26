@@ -1,0 +1,12 @@
+.boy-left .student-body { left: -1.0417%; top: 28.2407%; width: 33.6979%; }
+.boy-left .student-face { left: 5.2604%; top: 28.4259%; width: 12.7083%; }
+.boy-left .student-note { left: 4.5312%; top: 51.3889%; width: 14.1667%; font-size: 1.9792vw; line-height: 2.5000vw; }
+.girl-left .student-body { left: 21.7708%; top: 38.4259%; width: 22.2396%; }
+.girl-left .student-face { left: 25.7812%; top: 38.4259%; width: 10.9896%; }
+.girl-left .student-note { left: 25.2604%; top: 53.8889%; width: 12.1354%; font-size: 1.6667vw; line-height: 2.0833vw; }
+.boy-right .student-body { left: 59.0625%; top: 38.5185%; width: 25.7292%; }
+.boy-right .student-face { left: 63.1771%; top: 38.4259%; width: 9.8438%; }
+.boy-right .student-note { left: 62.6042%; top: 53.8889%; width: 12.1354%; font-size: 1.6667vw; line-height: 2.0833vw; }
+.girl-right .student-body { left: 75.9375%; top: 28.6111%; width: 42.8125%; }
+.girl-right .student-face { left: 79.6875%; top: 28.6111%; width: 16.5625%; }
+.girl-right .student-note { left: 81.4583%; top: 51.3889%; width: 14.3750%; font-size: 1.9792vw; line-height: 2.5000vw; }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jealousy - When are we Jealous ?</title>
+    <link rel="stylesheet" href="./assets/plugins/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/define.css">
+</head>
+
+<body id="body" data-page="when">
+
+    <div id="langSelect">
+        <div id="language">
+            <label><input type="radio" onclick="val('English')" name="lang" id="en" value="English">
+                <span>E</span>
+            </label>
+            <label><input type="radio" onclick="val('Hindi')" name="lang" id="hi" value="Hindi">
+                <span>H</span>
+            </label>
+            <label><input type="radio" onclick="val('Gujrati')" name="lang" id="gu" value="Gujrati">
+                <span>G</span>
+            </label>
+        </div>
+    </div>
+
+    <img class="page-bg" src="./assets/images/background.png" alt="">
+
+    <div class="main-container">
+        <div class="stage state-closed" id="stage">
+            <img class="stage-spacer" src="./assets/images/stage-spacer.png" width="1920" height="1080" alt="">
+            <div class="zoom-group">
+            <img class="define-bg" src="./assets/images/bginside.png" alt="Brick wall with plants">
+            <div class="window-frame"><img src="./assets/images/window-frame.png" alt=""></div>
+
+            <div class="window-mask">
+                <img class="glass-tint" src="./assets/images/glass-tint.png" alt="">
+                <img class="window-room" src="./assets/images/room-scene.png" alt="Blurred classroom">
+                <div class="swiper define-swiper">
+                    <div class="swiper-wrapper">
+                    </div>
+                </div>
+            </div>
+
+            <div class="shutter shutter-left"><img src="./assets/images/leftwindow.png" alt=""></div>
+            <div class="shutter shutter-right"><img src="./assets/images/rightwindow.png" alt=""></div>
+            </div>
+
+            <a class="home-btn" href="./index.html" aria-label="Home"><img src="./assets/images/home-btn.png" alt="Home"></a>
+
+            <div class="title-pill">
+                <h1 class="title-text"></h1>
+            </div>
+
+            <nav class="num-list" aria-label="Topics"></nav>
+
+            <div class="arrow arrow-prev"><img src="./assets/images/arrow-next.png" alt="Previous"></div>
+            <div class="arrow arrow-next"><img src="./assets/images/arrow-next.png" alt="Next"></div>
+
+            <div class="dots define-dots"></div>
+
+            <a class="watch-btn" href="#" id="watchBtn"><img src="./assets/images/watchvideo.png" alt="Watch video"><span class="watch-label"><span class="english">WATCH VIDEO</span><span class="hindi">WATCH VIDEO</span><span class="gujrati">WATCH VIDEO</span></span></a>
+
+            <div class="note-pill">
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/plugins/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/js/jquery-3.7.1.js"></script>
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/topic.js"></script>
+    <script src="./assets/js/custom.js"></script>
+</body>
+
+</html>

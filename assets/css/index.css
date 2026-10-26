@@ -446,3 +446,34 @@ body {
 .boy-right .student-note .gujrati {
     margin-top: 0.7vw;
 }
+
+/* opening on the finished scene (coming back from a topic page): same look as the end of the intro, no animation */
+
+html.skip-intro .stage * {
+    transition: none !important;
+}
+
+html.skip-intro .state-intro .world {
+    transform: translate(0, 0) scale(1);
+}
+
+html.skip-intro .state-intro .title-wrap {
+    top: 7.2222%;
+}
+
+html.skip-intro .state-intro .boy-left,
+html.skip-intro .state-intro .girl-left,
+html.skip-intro .state-intro .boy-right,
+html.skip-intro .state-intro .girl-right {
+    transform: none;
+}
+
+html.skip-intro .state-intro .back-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+html.skip-intro .state-intro .enter-btn {
+    opacity: 0;
+    pointer-events: none;
+}

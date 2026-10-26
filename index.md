@@ -138,3 +138,5 @@ Positions are frame-relative, taken from Figma metadata raw x/y.
 7. All four notebooks now open their page after the exit animation: boy-left `define.html`, girl-left `when.html`, boy-right `adverse.html`, girl-right `how.html`.
 
 8. The round replay button (top left, from the last frame on) resets the animation: the camera zooms back in, the students slide out and ENTER returns.
+
+9. Coming back from a topic page (or pranam) with its Home button opens `index.html` straight on the finished scene (no intro, ENTER hidden, children in place): the button sets `sessionStorage.skipIntro`, `assets/js/index-init.js` (in `<head>`) turns it into `html.skip-intro` before the first paint, and `index.js` then drops `state-intro`.

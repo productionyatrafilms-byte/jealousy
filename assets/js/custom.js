@@ -89,6 +89,11 @@ document.querySelectorAll(".home-btn, .back-btn, .home-btn-1, .pranam-end-link")
         var href = el.getAttribute("href");
         if (href && href !== "#") {
             e.preventDefault();
+            if (/index\.html/.test(href)) {
+                try {
+                    sessionStorage.setItem("skipIntro", "1");
+                } catch (err) {}
+            }
             playSoundThenNavigate(clickAudio, href);
         } else {
             playSound(clickAudio);

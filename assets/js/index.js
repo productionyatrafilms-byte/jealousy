@@ -16,6 +16,14 @@
 })();
 
 $(function () {
+    if ($("html").hasClass("skip-intro")) {
+        $("#stage").removeClass("state-intro");
+        requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+                $("html").removeClass("skip-intro");
+            });
+        });
+    }
     var transitionSound = new Audio("./assets/audio/transition.mp3");
     var $stage = $("#stage");
     var $girl = $(".girl-center");

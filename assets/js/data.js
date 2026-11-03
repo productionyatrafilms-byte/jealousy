@@ -20,7 +20,7 @@ window.JEALOUSY_DATA = {
   pages: {
     define: {
       file: "define.html",
-      watchVideo: "assets/videos/1.mp4",
+      watchVideo: "assets/videos/1.webm",
       videoDir: "assets/videos/1/",
       title: {
         english: "1. What is Jealousy ?",
@@ -260,7 +260,7 @@ window.JEALOUSY_DATA = {
 
     how: {
       file: "how.html",
-      watchVideo: "assets/videos/2.mp4",
+      watchVideo: "assets/videos/2.webm",
       videoDir: "assets/videos/4/",
       endLink: {
         href: "./pranam.html",
